@@ -2,6 +2,15 @@
 my_vector <- 1:20 # when use : don't need the c()
 class() # show the class of the variable
 ints <- sample(10) #The vector `ints` is a random sampling of integers from 1 to 10 without replacement.
+dim() # verify the size of the data, like columns and rows
+nrow() # number of rows (observations)
+ncol() # number of columns (variables)
+object.size() # to know how much size the dataset is occupying in memory
+head(data,10) # see the first 6 rows, or when specified show the number of rows on the second argument.
+tail(data,10) # the same of head, but works from the end of the table
+summary() # get the min, 1st quart, median, mean, 3rd quart, max values and other info depending on the class.
+table(flags$landmass) # count number of each value have in the column landmass
+str() # info about a dataset, the number of observations and variables, the classes and a preview of content.
 
 #lesson 4 Vectors
 #Use of paste()
@@ -40,3 +49,18 @@ xor(5==6,!FALSE) #evaluate to true because 1 argument is TRUE and another is FAL
 #which() function takes a logical vector as an argument and returns the indices of the vector that are TRUE
 #The any() function will return TRUE if one or more of the elements in the logical vector is TRUE
 #all() function will return TRUE if every element in the logical vector is TRUE
+
+#Lesson 9 - lapply and sapply - sapply is for vectors of length 1 and lapply always return a list
+unique() # function returns a vector with all duplicate elements removed.
+lapply(unique_vals, function(elem) elem[2]) # will return a list containing the second item from each element
+viewinfo() #show documentation about a dataset. There as no need of another argument.
+tapply(flags$population,flags$landmass,summary) # example, get the summary of the population for each landmass
+
+#Lesson 10 - Simulation
+sample(c(0,1),100,replace=TRUE,prob=c(0.3,0.7)) #produce 100 flips of an unfair coin
+rbinom(100,size=1,prob=0.7) # The same above, but with rbinom
+rbinom(1,size=100,prob=0.7) # shows the number of success (1) in the simulation
+replicate(100, rpois(5, 10)) # will repeat the operation 100 times and store the result.
+colMeans(data) # show the mean of each collumn
+hist(data) # show a histogram of the data
+
